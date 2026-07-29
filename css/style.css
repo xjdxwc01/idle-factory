@@ -644,130 +644,6 @@ html, body {
 .card { padding: clamp(10px, 2.8vw, 16px); margin-bottom: clamp(8px, 2vw, 12px); }
 .machine-item { padding: clamp(8px, 2.5vw, 14px); margin-bottom: clamp(8px, 2vw, 12px); }
 
-/* ==================== 超窄屏优化 (≤340px) ==================== */
-@media (max-width: 340px) {
-  .top-bar { padding: 8px 10px; }
-  .top-bar-resources { gap: 6px; }
-  .res-badge { gap: 2px; }
-  .nav-btn { font-size: 7px; padding: 4px 1px; }
-  .nav-btn .nav-icon { font-size: 15px; }
-  .status-bar { padding: 5px 8px; font-size: 9px; gap: 2px 8px; }
-  .status-item { gap: 2px; }
-  .card { padding: 8px; }
-  .machine-item { padding: 8px; }
-  .btn { padding: 6px 8px; font-size: 11px; }
-  .btn-sm { padding: 5px 8px; font-size: 10px; }
-  .boost-btn { width: 48px; height: 48px; font-size: 20px; bottom: calc(64px + env(safe-area-inset-bottom)); right: 10px; }
-}
-
-/* ==================== 窄屏优化 (341px~380px) ==================== */
-@media (max-width: 380px) and (min-width: 341px) {
-  .top-bar { padding: 8px 12px; }
-  .nav-btn { font-size: 8px; padding: 5px 1px; }
-  .nav-btn .nav-icon { font-size: 16px; }
-  .status-bar { padding: 6px 10px; font-size: 10px; gap: 3px 10px; }
-  .btn { padding: 6px 10px; font-size: 12px; }
-}
-
-/* ==================== 中等手机屏 (381px~480px) 默认已适配 ==================== */
-
-/* ==================== 大屏手机/小平板 (481px~768px) ==================== */
-@media (min-width: 481px) {
-  :root { --max-width: 520px; }
-  .top-bar { padding: 12px 20px; }
-  .top-bar-resources { gap: 16px; }
-  .nav-btn { font-size: 11px; padding: 8px 6px; }
-  .nav-btn .nav-icon { font-size: 22px; }
-  .status-bar { font-size: 13px; padding: 10px 20px; }
-  .content { padding: 16px; }
-}
-
-/* ==================== 平板/桌面 (≥769px) 双栏布局 ==================== */
-@media (min-width: 769px) {
-  :root { --max-width: 760px; }
-
-  /* 顶部栏放大 */
-  .top-bar { padding: 14px 24px; }
-  .top-bar-title { font-size: 20px; }
-  .top-bar-resources { gap: 20px; }
-  .res-badge { font-size: 15px; }
-
-  /* 内容区双栏网格 */
-  .content {
-    padding: 16px 24px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    align-content: start;
-  }
-  /* 面板标题横跨两栏 */
-  .content > .panel-header,
-  .content > .fleet-summary,
-  .content > .mega-card {
-    grid-column: 1 / -1;
-  }
-  .card, .machine-item { margin-bottom: 0; }
-  .machine-item { break-inside: avoid; }
-
-  /* 底部导航放大 */
-  .nav-btn { font-size: 12px; padding: 10px 8px; }
-  .nav-btn .nav-icon { font-size: 24px; }
-
-  /* 状态栏单行不换行 */
-  .status-bar { flex-wrap: nowrap; font-size: 13px; padding: 10px 24px; }
-
-  /* 加速按钮 */
-  .boost-btn { width: 60px; height: 60px; font-size: 26px; bottom: calc(78px + env(safe-area-inset-bottom)); right: 24px; }
-}
-
-/* ==================== 宽屏桌面 (≥1025px) 三栏布局 ==================== */
-@media (min-width: 1025px) {
-  :root { --max-width: 960px; }
-
-  .content {
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 16px;
-    padding: 20px 32px;
-  }
-
-  .top-bar { padding: 16px 32px; }
-  .top-bar-title { font-size: 22px; }
-
-  .nav-btn { font-size: 13px; }
-  .nav-btn .nav-icon { font-size: 26px; }
-
-  .status-bar { padding: 12px 32px; font-size: 14px; }
-}
-
-/* ==================== 横屏适配 (高度≤500px) ==================== */
-@media (max-height: 500px) and (orientation: landscape) {
-  .top-bar { padding: 6px 16px; padding-top: calc(6px + env(safe-area-inset-top)); }
-  .top-bar-title { font-size: 14px; }
-  .res-badge { font-size: 12px; }
-  .res-badge .res-icon { font-size: 14px; }
-
-  .content { padding: 8px 12px; }
-  .card, .machine-item { padding: 8px; margin-bottom: 6px; }
-  .card-title, .machine-name { font-size: 13px; }
-
-  .status-bar { padding: 4px 16px; padding-bottom: calc(4px + env(safe-area-inset-bottom)); font-size: 10px; }
-  .status-item { gap: 2px; }
-
-  .nav-btn { padding: 4px 2px; min-height: 36px; }
-  .nav-btn .nav-icon { font-size: 16px; }
-  .nav-btn span:not(.nav-icon) { font-size: 9px; }
-
-  .boost-btn { width: 44px; height: 44px; font-size: 18px; bottom: calc(56px + env(safe-area-inset-bottom)); right: 12px; }
-
-  /* 横屏时大屏也用双栏填充横向空间 */
-  @media (min-width: 768px) {
-    :root { --max-width: 100%; }
-    .content { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-    .content > .panel-header,
-    .content > .fleet-summary { grid-column: 1 / -1; }
-  }
-}
-
 /* ==================== 通用面板标题 ==================== */
 .panel-header {
   display: flex;
@@ -1179,4 +1055,107 @@ html, body {
   height: 8px;
   background: var(--accent-red);
   border-radius: 50%;
+}
+
+/* ==================== 超窄屏优化 (≤340px) ==================== */
+@media (max-width: 340px) {
+  .top-bar { padding: 8px 10px !important; }
+  .top-bar-resources { gap: 6px !important; }
+  .res-badge { gap: 2px !important; }
+  .nav-btn { font-size: 7px !important; padding: 4px 1px !important; }
+  .nav-btn .nav-icon { font-size: 15px !important; }
+  .status-bar { padding: 5px 8px !important; font-size: 9px !important; gap: 2px 8px !important; }
+  .status-item { gap: 2px !important; }
+  .card { padding: 8px !important; }
+  .machine-item { padding: 8px !important; }
+  .btn { padding: 6px 8px !important; font-size: 11px !important; }
+  .btn-sm { padding: 5px 8px !important; font-size: 10px !important; }
+  .boost-btn { width: 48px !important; height: 48px !important; font-size: 20px !important; bottom: calc(64px + env(safe-area-inset-bottom)) !important; right: 10px !important; }
+}
+
+/* ==================== 窄屏优化 (341px~380px) ==================== */
+@media (max-width: 380px) and (min-width: 341px) {
+  .top-bar { padding: 8px 12px !important; }
+  .nav-btn { font-size: 8px !important; padding: 5px 1px !important; }
+  .nav-btn .nav-icon { font-size: 16px !important; }
+  .status-bar { padding: 6px 10px !important; font-size: 10px !important; gap: 3px 10px !important; }
+  .btn { padding: 6px 10px !important; font-size: 12px !important; }
+}
+
+/* ==================== 大屏手机/小平板 (481px~768px) ==================== */
+@media (min-width: 481px) {
+  :root { --max-width: 520px !important; }
+  .top-bar { padding: 12px 20px !important; }
+  .top-bar-resources { gap: 16px !important; }
+  .nav-btn { font-size: 11px !important; padding: 8px 6px !important; }
+  .nav-btn .nav-icon { font-size: 22px !important; }
+  .status-bar { font-size: 13px !important; padding: 10px 20px !important; }
+  .content { padding: 16px !important; }
+}
+
+/* ==================== 平板/桌面 (≥769px) 双栏布局 ==================== */
+@media (min-width: 769px) {
+  :root { --max-width: 760px !important; }
+  .top-bar { padding: 14px 24px !important; }
+  .top-bar-title { font-size: 20px !important; }
+  .top-bar-resources { gap: 20px !important; }
+  .res-badge { font-size: 15px !important; }
+  .content {
+    padding: 16px 24px !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 12px !important;
+    align-content: start !important;
+  }
+  .content > .panel-header,
+  .content > .fleet-summary,
+  .content > .mega-card {
+    grid-column: 1 / -1 !important;
+  }
+  .card, .machine-item { margin-bottom: 0 !important; }
+  .machine-item { break-inside: avoid !important; }
+  .nav-btn { font-size: 12px !important; padding: 10px 8px !important; }
+  .nav-btn .nav-icon { font-size: 24px !important; }
+  .status-bar { flex-wrap: nowrap !important; font-size: 13px !important; padding: 10px 24px !important; }
+  .boost-btn { width: 60px !important; height: 60px !important; font-size: 26px !important; bottom: calc(78px + env(safe-area-inset-bottom)) !important; right: 24px !important; }
+}
+
+/* ==================== 宽屏桌面 (≥1025px) 三栏布局 ==================== */
+@media (min-width: 1025px) {
+  :root { --max-width: 960px !important; }
+  .content {
+    grid-template-columns: 1fr 1fr 1fr !important;
+    gap: 16px !important;
+    padding: 20px 32px !important;
+  }
+  .top-bar { padding: 16px 32px !important; }
+  .top-bar-title { font-size: 22px !important; }
+  .nav-btn { font-size: 13px !important; }
+  .nav-btn .nav-icon { font-size: 26px !important; }
+  .status-bar { padding: 12px 32px !important; font-size: 14px !important; }
+}
+
+/* ==================== 横屏适配 (高度≤500px) ==================== */
+@media (max-height: 500px) and (orientation: landscape) {
+  .top-bar { padding: 6px 16px !important; padding-top: calc(6px + env(safe-area-inset-top)) !important; }
+  .top-bar-title { font-size: 14px !important; }
+  .res-badge { font-size: 12px !important; }
+  .res-badge .res-icon { font-size: 14px !important; }
+  .content { padding: 8px 12px !important; }
+  .card, .machine-item { padding: 8px !important; margin-bottom: 6px !important; }
+  .card-title, .machine-name { font-size: 13px !important; }
+  .status-bar { padding: 4px 16px !important; padding-bottom: calc(4px + env(safe-area-inset-bottom)) !important; font-size: 10px !important; }
+  .status-item { gap: 2px !important; }
+  .nav-btn { padding: 4px 2px !important; min-height: 36px !important; }
+  .nav-btn .nav-icon { font-size: 16px !important; }
+  .nav-btn span:not(.nav-icon) { font-size: 9px !important; }
+  .boost-btn { width: 44px !important; height: 44px !important; font-size: 18px !important; bottom: calc(56px + env(safe-area-inset-bottom)) !important; right: 12px !important; }
+}
+
+/* ==================== 横屏 + 宽屏双栏（高度≤500px 且 宽度≥768px） ==================== */
+@media (max-height: 500px) and (orientation: landscape) and (min-width: 768px) {
+  :root { --max-width: 100% !important; }
+  .content { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 8px !important; }
+  .content > .panel-header,
+  .content > .fleet-summary { grid-column: 1 / -1 !important; }
 }
