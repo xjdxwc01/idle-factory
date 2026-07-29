@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#0F1115">
+  <title>星际工业国</title>
+  <link rel="stylesheet" href="css/style.css?v=2">
+</head>
+<body>
+  <div id="game">
+    <!-- 顶部资源栏 -->
+    <div class="top-bar">
+      <div class="top-bar-title">🚀 星际工业国</div>
+      <div class="top-bar-resources">
+        <div class="res-badge">
+          <span class="res-icon">💰</span>
+          <span class="res-val" id="top-coins">0</span>
+        </div>
+        <div class="res-badge diamond">
+          <span class="res-icon">💎</span>
+          <span class="res-val" id="top-diamonds">0</span>
+        </div>
+        <div class="res-badge power">
+          <span class="res-icon">⚡</span>
+          <span class="res-val" id="top-power">0/0</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 内容区 -->
+    <div class="content">
+      <div class="tab-page active" id="page-factory"></div>
+      <div class="tab-page" id="page-fleet"></div>
+      <div class="tab-page" id="page-starmap"></div>
+      <div class="tab-page" id="page-character"></div>
+      <div class="tab-page" id="page-tech"></div>
+      <div class="tab-page" id="page-trade"></div>
+      <div class="tab-page" id="page-shop"></div>
+    </div>
+
+    <!-- 状态栏 -->
+    <div class="status-bar">
+      <div class="status-item">利润: <span class="val" id="status-profit">0/s</span></div>
+      <div class="status-item">科技: <span class="val" id="status-tech">0/s</span></div>
+      <div class="status-item">战力: <span class="val" id="status-fleet-power">0</span></div>
+      <div class="status-item">电力: <span class="val" id="status-power">100%</span></div>
+    </div>
+
+    <!-- 底部导航 -->
+    <div class="bottom-nav">
+      <button class="nav-btn active" data-tab="factory">
+        <span class="nav-icon">🏭</span>
+        <span>工厂</span>
+      </button>
+      <button class="nav-btn" data-tab="fleet">
+        <span class="nav-icon">🚀</span>
+        <span>舰队</span>
+      </button>
+      <button class="nav-btn" data-tab="starmap">
+        <span class="nav-icon">🗺️</span>
+        <span>星图</span>
+      </button>
+      <button class="nav-btn" data-tab="character">
+        <span class="nav-icon">👥</span>
+        <span>角色</span>
+      </button>
+      <button class="nav-btn" data-tab="tech">
+        <span class="nav-icon">🔬</span>
+        <span>科技</span>
+      </button>
+      <button class="nav-btn" data-tab="trade">
+        <span class="nav-icon">📦</span>
+        <span>贸易</span>
+      </button>
+      <button class="nav-btn" data-tab="shop">
+        <span class="nav-icon">🛒</span>
+        <span>商店</span>
+      </button>
+    </div>
+
+    <!-- 加速按钮 -->
+    <button class="boost-btn" id="boost-btn">🚀</button>
+  </div>
+
+  <!-- 脚本 -->
+  <script src="js/data.js?v=7"></script>
+  <script src="js/ad.js?v=7"></script>
+  <script src="js/save.js?v=7"></script>
+  <script src="js/game.js?v=7"></script>
+  <script src="js/ui.js?v=7"></script>
+  <script>
+    // 启动游戏
+    window.addEventListener('DOMContentLoaded', () => {
+      Game.init();
+      UI.init();
+    });
+  </script>
+</body>
+</html>
